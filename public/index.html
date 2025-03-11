@@ -4,42 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        .short-url {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -52,33 +17,7 @@
     <div class="short-url" id="short-url"></div>
 </div>
 
-<script>
-    document.getElementById('url-form').addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const url = document.getElementById('url-input').value;
-
-        try {
-            const response = await fetch('/shorten', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ url }),
-            });
-
-            const data = await response.json();
-            if (data.shortUrl) {
-                document.getElementById('short-url').innerHTML = `<strong>Shortened URL:</strong> <a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>`;
-            } else {
-                document.getElementById('short-url').innerHTML = `<strong>Error:</strong> ${data.error}`;
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            document.getElementById('short-url').innerHTML = `<strong>Error:</strong> Could not shorten the URL.`;
-        }
-    });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
