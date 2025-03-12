@@ -52,7 +52,7 @@ app.post("/shorten", async (req, res) => {
         const shortId = nanoid(6);
         const newUrl = new Url({url, shortId})
         await newUrl.save();
-        res.json({ shortUrl: `https://url-shortener-production-9b70.up.railway.app//${shortId}`});
+        res.json({ shortUrl: `https://url-shortener-production-9b70.up.railway.app/${shortId}`});
     } catch(error) {
         res.status(500).json({error: "Server error"});
     }
