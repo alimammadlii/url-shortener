@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import urlRoutes from "./routes/urlRoutes";
+import urlRoutes from "./routes/urlRoutes.js";
 
 dotenv.config();
 const app = express();

@@ -1,6 +1,6 @@
 import express from "express";
-import urlShortenLimiter from "../middlewares/rateLimiter";
-import Url from "./models/shortUrl.js";
+import urlShortenLimiter from "../middlewares/rateLimiter.js";
+import Url from "../models/shortUrl.js";
 import { nanoid } from "nanoid";
 
 const router = express.Router();
